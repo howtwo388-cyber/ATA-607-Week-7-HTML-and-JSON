@@ -44,6 +44,12 @@ The Approach phase is complete.
 
 The HTML and JSON Code Base phase is in progress.
 
+## Published Report
+
+View the final DATA 607 Week 7 report on RPubs:
+
+https://rpubs.com/howtwo3/DATA607-Week7-HTML-JSON
+
 ## Author
 
 Patricio Romero
