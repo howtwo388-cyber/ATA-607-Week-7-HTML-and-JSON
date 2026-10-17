@@ -2288,7 +2288,7 @@ vertical-align: -.125em;
 <section id="introduction" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
 <p>HTML and JSON are common formats used to organize and exchange information on the web. HTML is mainly used to structure web pages, while JSON is used to store and exchange structured data.</p>
-<p>In this project, I will work with bibliographic information from three electrical engineering books related to power system analysis.</p>
+<p>In this project, I worked with bibliographic information from three electrical engineering books related to power system analysis.</p>
 <p>I selected this subject because my professional background is in electrical engineering. I am interested in power flow analysis, electrical distribution systems, and power system modeling.</p>
 <p>The purpose of this project is to organize the same information in HTML and JSON formats and later compare the imported data using R.</p>
 </section>
@@ -2363,7 +2363,7 @@ vertical-align: -.125em;
 <th>Authors</th>
 <th>Publication Year</th>
 <th>Publisher</th>
-<th>ISBN-13</th>
+<th>ISBN</th>
 </tr>
 </thead>
 <tbody>
@@ -2429,7 +2429,7 @@ vertical-align: -.125em;
 <tr class="odd">
 <td>ISBN</td>
 <td>Character</td>
-<td>International Standard Book Number (ISBN-13)</td>
+<td>International Standard Book Number (ISBN)</td>
 </tr>
 </tbody>
 </table>
@@ -2437,8 +2437,8 @@ vertical-align: -.125em;
 </section>
 <section id="api-data-validation-plan" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> API Data Validation Plan</h1>
-<p>To improve data quality, I plan to use the Google Books API to verify the bibliographic information.</p>
-<p>The API will be used to check:</p>
+<p>To improve data quality, I used the Google Books API to verify the bibliographic information.</p>
+<p>The API was used to check:</p>
 <ol type="1">
 <li>Book titles</li>
 <li>Author names</li>
@@ -2446,17 +2446,17 @@ vertical-align: -.125em;
 <li>Publishers</li>
 <li>ISBN numbers</li>
 </ol>
-<p>I will compare the information returned by the API with the original dataset.</p>
-<p>If differences are found, I will review them to determine whether they represent incorrect information or different book editions.</p>
-<p>The API will be used as an additional validation source. It will not automatically replace the original data.</p>
-<p>This process will help identify possible errors and improve data consistency.</p>
-<p>The Google Books API will be accessed through its public Books Volumes endpoint. I planned to search by ISBN. Because that search returned errors, the Code Base uses verified Google Books volume IDs and compares their ISBN values with the original dataset.</p>
+<p>I compared the information returned by the API with the original dataset.</p>
+<p>I reviewed the differences to determine whether they were caused by abbreviations or different bibliographic information.</p>
+<p>The API was used as an additional validation source. It did not automatically replace the original data.</p>
+<p>This process helped identify possible differences and improve data consistency.</p>
+<p>I accessed the Google Books API through its public Books Volumes endpoint. I first tried searching by ISBN, but the search returned errors or no results. I then used Google Books volume IDs to retrieve the records and compare their ISBN values with the original dataset.</p>
 <p>The returned information was reviewed against the original dataset. The completed API validation and its results are presented in the Code Base section.</p>
-<p>If the API does not return a matching record, I will review the bibliographic information using other available sources.</p>
+<p>If an API request fails, the code reports the error instead of treating the book as verified.</p>
 </section>
 <section id="proposed-html-data-structure" class="level1" data-number="7">
 <h1 data-number="7"><span class="header-section-number">7</span> Proposed HTML Data Structure</h1>
-<p>In the next phase, I will manually create an HTML file named <code>books.html</code>.</p>
+<p>I created an HTML file named <code>books.html</code> containing a table with the bibliographic information for the three selected books.</p>
 <p>The file will contain a table with the information from the original dataset.</p>
 <p>The HTML table will include five columns:</p>
 <ul>
@@ -2471,19 +2471,19 @@ vertical-align: -.125em;
 </section>
 <section id="proposed-json-data-structure" class="level1" data-number="8">
 <h1 data-number="8"><span class="header-section-number">8</span> Proposed JSON Data Structure</h1>
-<p>I will also manually create a JSON file named <code>books.json</code>.</p>
-<p>The JSON file will contain the same three books and the same five variables.</p>
-<p>Each book will be represented as a JSON object containing key-value pairs.</p>
-<p>Both files will use the same information to allow a direct comparison after importing the data into R.</p>
+<p>I created a JSON file named <code>books.json</code>.</p>
+<p>The JSON file contains the same three books and five variables.</p>
+<p>Each book is represented as a JSON object containing key-value pairs.</p>
+<p>Both files contain the same information, allowing a direct comparison after importing the data into R.</p>
 </section>
 <section id="data-processing-and-comparison-plan" class="level1" data-number="9">
 <h1 data-number="9"><span class="header-section-number">9</span> Data Processing and Comparison Plan</h1>
 <section id="importance-of-r" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="importance-of-r"><span class="header-section-number">9.1</span> Importance of R</h2>
 <p>R is an important tool for data analysis because it allows users to import, organize, clean, and compare information from different sources.</p>
-<p>In this project, R will be used to process bibliographic information stored in HTML and JSON formats.</p>
-<p>The <code>rvest</code> package will be used to read the HTML table, while the <code>jsonlite</code> package will be used to import the JSON file.</p>
-<p>Both datasets will be converted into separate data frames for comparison.</p>
+<p>In this project, R was used to process bibliographic information stored in HTML and JSON formats.</p>
+<p>The <code>rvest</code> package was used to read the HTML table, while the <code>jsonlite</code> package was used to import the JSON file.</p>
+<p>Both datasets were converted into separate data frames for comparison.</p>
 </section>
 <section id="importance-of-data-frame-comparison" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="importance-of-data-frame-comparison"><span class="header-section-number">9.2</span> Importance of Data Frame Comparison</h2>
@@ -2501,12 +2501,12 @@ vertical-align: -.125em;
 </section>
 <section id="proposed-comparison-method" class="level2" data-number="9.3">
 <h2 data-number="9.3" class="anchored" data-anchor-id="proposed-comparison-method"><span class="header-section-number">9.3</span> Proposed Comparison Method</h2>
-<p>First, I will import the HTML and JSON files into R.</p>
-<p>Next, I will review the structure of both data frames and check that they contain the same three books and five variables.</p>
-<p>If necessary, I will standardize the column names, data types, and column order.</p>
-<p>Finally, I will use the <code>identical()</code> function in R to check whether both data frames contain exactly the same information.</p>
-<p>The comparison results will be presented during the Code Base phase.</p>
-<p>This process will help demonstrate how R can be used to validate data consistency across different formats.</p>
+<p>First, I imported the HTML and JSON files into R.</p>
+<p>Next, I reviewed the structure of both data frames and checked that they contained the same three books and five variables.</p>
+<p>I standardized the column names, data types, and column order before comparing the datasets.</p>
+<p>Finally, I used the <code>identical()</code> function in R to check whether both data frames contained exactly the same information.</p>
+<p>The comparison results are presented in the Code Base section.</p>
+<p>This process demonstrated how R can be used to validate data consistency across different formats.</p>
 </section>
 </section>
 <section id="expected-results" class="level1" data-number="10">
@@ -2815,7 +2815,7 @@ vertical-align: -.125em;
 </section>
 <section id="google-books-api-validation" class="level3" data-number="11.5.2">
 <h3 data-number="11.5.2" class="anchored" data-anchor-id="google-books-api-validation"><span class="header-section-number">11.5.2</span> Google Books API Validation</h3>
-<p>I used my own Google Books API key to check the ISBN-13 numbers in an external book database.</p>
+<p>I used my own Google Books API key to check the ISBN numbers in an external book database.</p>
 <p>This validation is separate from the HTML and JSON comparison and the ISBN-13 check-digit validation.</p>
 <div class="cell">
 <details class="code-fold">
@@ -2915,8 +2915,8 @@ vertical-align: -.125em;
 <span id="cb18-93"><a href="#cb18-93" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
 <span id="cb18-94"><a href="#cb18-94" aria-hidden="true" tabindex="-1"></a>  api_results[, <span class="fu">c</span>(<span class="st">&quot;ISBN&quot;</span>, <span class="st">&quot;Google_Books_ID&quot;</span>, <span class="st">&quot;HTTP_Status&quot;</span>, <span class="st">&quot;API_Status&quot;</span>,</span>
 <span id="cb18-95"><a href="#cb18-95" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Title_Match&quot;</span>, <span class="st">&quot;Year_Match&quot;</span>, <span class="st">&quot;ISBN_Match&quot;</span>)],</span>
-<span id="cb18-96"><a href="#cb18-96" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">&quot;ISBN-13&quot;</span>, <span class="st">&quot;Google Books ID&quot;</span>, <span class="st">&quot;HTTP Status&quot;</span>, <span class="st">&quot;API Status&quot;</span>,</span>
-<span id="cb18-97"><a href="#cb18-97" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;Title Match&quot;</span>, <span class="st">&quot;Publication Year Match&quot;</span>, <span class="st">&quot;ISBN-13 Match&quot;</span>),</span>
+<span id="cb18-96"><a href="#cb18-96" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">&quot;ISBN&quot;</span>, <span class="st">&quot;Google Books ID&quot;</span>, <span class="st">&quot;HTTP Status&quot;</span>, <span class="st">&quot;API Status&quot;</span>,</span>
+<span id="cb18-97"><a href="#cb18-97" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;Title Match&quot;</span>, <span class="st">&quot;Publication Year Match&quot;</span>, <span class="st">&quot;ISBN Match&quot;</span>),</span>
 <span id="cb18-98"><a href="#cb18-98" aria-hidden="true" tabindex="-1"></a>  <span class="at">row.names =</span> <span class="cn">FALSE</span>,</span>
 <span id="cb18-99"><a href="#cb18-99" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">&quot;Google Books API Validation Results&quot;</span></span>
 <span id="cb18-100"><a href="#cb18-100" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2925,23 +2925,23 @@ vertical-align: -.125em;
 <table class="caption-top table table-sm table-striped small">
 <caption>Google Books API Validation Results</caption>
 <colgroup>
-<col style="width: 13%">
-<col style="width: 15%">
+<col style="width: 14%">
+<col style="width: 16%">
+<col style="width: 12%">
 <col style="width: 11%">
-<col style="width: 10%">
+<col style="width: 12%">
+<col style="width: 23%">
 <col style="width: 11%">
-<col style="width: 22%">
-<col style="width: 13%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">ISBN-13</th>
+<th style="text-align: left;">ISBN</th>
 <th style="text-align: left;">Google Books ID</th>
 <th style="text-align: right;">HTTP Status</th>
 <th style="text-align: left;">API Status</th>
 <th style="text-align: left;">Title Match</th>
 <th style="text-align: left;">Publication Year Match</th>
-<th style="text-align: left;">ISBN-13 Match</th>
+<th style="text-align: left;">ISBN Match</th>
 </tr>
 </thead>
 <tbody>
@@ -3047,8 +3047,8 @@ vertical-align: -.125em;
 </section>
 <section id="results-and-discussion" class="level2" data-number="11.6">
 <h2 data-number="11.6" class="anchored" data-anchor-id="results-and-discussion"><span class="header-section-number">11.6</span> Results and Discussion</h2>
-<p>The HTML and JSON files were successfully imported into R. Both datasets contain three books and five variables. The <code>identical()</code> comparison returned <code>TRUE</code>, and there were no missing values.</p>
-<p>All three ISBN-13 numbers passed the local check-digit test. During the final report execution, Google Books returned HTTP 200 for all three records. The titles, publication years, and ISBN-13 numbers matched the original dataset. Differences in author and publisher names are shown in a separate table for manual review.</p>
+<p>The HTML and JSON files were successfully imported into R. Both datasets contained three books and five variables. The identical() function returned TRUE, confirming that both datasets contained the same information. No missing values were found.</p>
+<p>All three ISBN numbers passed the check-digit validation. During the final report execution, the Google Books API returned HTTP 200 for all three records. The book titles, publication years, and ISBN numbers matched the original dataset. Some differences were found in the author and publisher names because the API used shorter names or abbreviations. These differences were included in a separate table for manual review.</p>
 </section>
 <section id="conclusions" class="level2" data-number="11.7">
 <h2 data-number="11.7" class="anchored" data-anchor-id="conclusions"><span class="header-section-number">11.7</span> Conclusions</h2>
