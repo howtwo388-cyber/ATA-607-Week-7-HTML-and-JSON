@@ -1,8 +1,8 @@
 ---
-title: "DATA 607 — Week 7: HTML and JSON Approach"
+title: "DATA 607 — Week 7: HTML and JSON"
 subtitle: "Electrical Power System Analysis Books: Data Collection and Validation"
 author: "Patricio Romero"
-date: "2026-10-13"
+date: "2026-10-17"
 format:
   html:
     toc: true
@@ -28,13 +28,13 @@ The purpose of this project is to organize the same information in HTML and JSON
 
 The main objectives of this project are:
 
-1. Select three books related to electrical power system analysis.
-2. Collect bibliographic information from each book.
-3. Organize the information into a structured dataset.
-4. Prepare a plan to verify the information using the Google Books API.
-5. Create HTML and JSON files containing the same information.
-6. Import both files into R.
-7. Compare the resulting data frames to verify data consistency.
+1.  Select three books related to electrical power system analysis.
+2.  Collect bibliographic information from each book.
+3.  Organize the information into a structured dataset.
+4.  Prepare a plan to verify the information using the Google Books API.
+5.  Create HTML and JSON files containing the same information.
+6.  Import both files into R.
+7.  Compare the resulting data frames to verify data consistency.
 
 # Book Selection
 
@@ -46,7 +46,7 @@ These books cover important electrical engineering topics, including power flow 
 
 **Authors:** John J. Grainger and William D. Stevenson Jr.
 
-**Publication Year:** 1994
+**Year:** 1994
 
 **Publisher:** McGraw-Hill
 
@@ -58,7 +58,7 @@ This book explains the fundamentals of electrical power system analysis, includi
 
 **Authors:** J. Duncan Glover, Mulukutla S. Sarma, and Thomas J. Overbye
 
-**Publication Year:** 2012
+**Year:** 2012
 
 **Publisher:** Cengage Learning
 
@@ -70,7 +70,7 @@ This book focuses on the analysis and design of electrical power systems. It inc
 
 **Author:** Hadi Saadat
 
-**Publication Year:** 2010
+**Year:** 2010
 
 **Publisher:** PSA Publishing
 
@@ -88,16 +88,16 @@ The dataset contains five variables:
 
 - Title
 - Authors
-- Publication Year
+- Year
 - Publisher
-- ISBN-13
+- ISBN
 
 The information was organized into the following table.
 
 ## Original Book Dataset
 
-| Title | Authors | Year | Publisher | ISBN-13 |
-|---|---|---|---|---|
+| Title | Authors | Publication Year | Publisher | ISBN-13 |
+|---------------|---------------|---------------|---------------|---------------|
 | Power System Analysis | John J. Grainger; William D. Stevenson Jr. | 1994 | McGraw-Hill | 9780070612938 |
 | Power System Analysis & Design, SI Version | J. Duncan Glover; Mulukutla S. Sarma; Thomas J. Overbye | 2012 | Cengage Learning | 9781133386681 |
 | Power System Analysis | Hadi Saadat | 2010 | PSA Publishing | 9780984543809 |
@@ -110,13 +110,13 @@ Each record represents one book, and each column represents one bibliographic at
 
 A data dictionary was prepared to describe the structure of the dataset.
 
-| Variable | Data Type | Description |
-|---|---|---|
-| Title | Character | Complete title of the book |
-| Authors | Character | Name or names of the authors |
-| Year | Integer | Publication year |
-| Publisher | Character | Name of the publishing company |
-| ISBN | Character | International Standard Book Number (ISBN-13) |
+| Variable  | Data Type | Description                                  |
+|-----------|-----------|----------------------------------------------|
+| Title     | Character | Complete title of the book                   |
+| Authors   | Character | Name or names of the authors                 |
+| Year      | Integer   | Publication year                             |
+| Publisher | Character | Name of the publishing company               |
+| ISBN      | Character | International Standard Book Number (ISBN-13) |
 
 The ISBN will be stored as a character variable because it is an identifier rather than a value used for mathematical calculations.
 
@@ -126,11 +126,11 @@ To improve data quality, I plan to use the Google Books API to verify the biblio
 
 The API will be used to check:
 
-1. Book titles
-2. Author names
-3. Publication years
-4. Publishers
-5. ISBN numbers
+1.  Book titles
+2.  Author names
+3.  Years
+4.  Publishers
+5.  ISBN numbers
 
 I will compare the information returned by the API with the original dataset.
 
@@ -140,16 +140,11 @@ The API will be used as an additional validation source. It will not automatical
 
 This process will help identify possible errors and improve data consistency.
 
-The Google Books API will be accessed through its public Books
-Volumes endpoint. Book records will be searched using their ISBN-13
-identifiers.
+The Google Books API will be accessed through its public Books Volumes endpoint. I planned to search by ISBN. Because that search returned errors, the Code Base uses verified Google Books volume IDs and compares their ISBN values with the original dataset.
 
-The returned information will be reviewed against the original
-dataset. API validation will be performed during the Code Base
-phase, and the results will be documented in the final report.
+The returned information was reviewed against the original dataset. The completed API validation and its results are presented in the Code Base section.
 
-If the API does not return a matching record, I will review
-the bibliographic information using other available sources.
+If the API does not return a matching record, I will review the bibliographic information using other available sources.
 
 # Proposed HTML Data Structure
 
@@ -183,31 +178,21 @@ Both files will use the same information to allow a direct comparison after impo
 
 ## Importance of R
 
-R is an important tool for data analysis because it allows
-users to import, organize, clean, and compare information
-from different sources.
+R is an important tool for data analysis because it allows users to import, organize, clean, and compare information from different sources.
 
-In this project, R will be used to process bibliographic
-information stored in HTML and JSON formats.
+In this project, R will be used to process bibliographic information stored in HTML and JSON formats.
 
-The `rvest` package will be used to read the HTML table,
-while the `jsonlite` package will be used to import the
-JSON file.
+The `rvest` package will be used to read the HTML table, while the `jsonlite` package will be used to import the JSON file.
 
-Both datasets will be converted into separate data frames
-for comparison.
+Both datasets will be converted into separate data frames for comparison.
 
 ## Importance of Data Frame Comparison
 
-Comparing data frames is important because information
-stored in different formats may produce different results
-when imported into R.
+Comparing data frames is important because information stored in different formats may produce different results when imported into R.
 
-For example, publication years may be imported as
-characters in one file and integers in another file.
+For example, Years may be imported as characters in one file and integers in another file.
 
-These differences can affect the comparison even when
-the original information appears to be the same.
+These differences can affect the comparison even when the original information appears to be the same.
 
 The comparison will help identify differences in:
 
@@ -221,22 +206,15 @@ The comparison will help identify differences in:
 
 First, I will import the HTML and JSON files into R.
 
-Next, I will review the structure of both data frames
-and check that they contain the same three books
-and five variables.
+Next, I will review the structure of both data frames and check that they contain the same three books and five variables.
 
-If necessary, I will standardize the column names,
-data types, and column order.
+If necessary, I will standardize the column names, data types, and column order.
 
-Finally, I will use the `identical()` function in R
-to check whether both data frames contain exactly
-the same information.
+Finally, I will use the `identical()` function in R to check whether both data frames contain exactly the same information.
 
-The comparison results will be presented during
-the Code Base phase.
+The comparison results will be presented during the Code Base phase.
 
-This process will help demonstrate how R can be used
-to validate data consistency across different formats.
+This process will help demonstrate how R can be used to validate data consistency across different formats.
 
 # Expected Results
 
@@ -248,9 +226,302 @@ The Google Books API may help identify differences in bibliographic information,
 
 This project will help me understand how HTML and JSON represent structured data and how R can be used to import, validate, and compare information from different sources.
 
+# HTML and JSON Code Base
+
+## Introduction
+
+In this section, I created and imported two files containing bibliographic information from three electrical engineering books.
+
+The first file uses HTML, and the second file uses JSON.
+
+The objective is to compare both datasets using R and determine whether they contain identical information.
+
+## Import HTML Data
+
+The `rvest` package is used to read the HTML table.
+
+```{r}
+#| label: import-html
+
+library(rvest)
+library(jsonlite)
+
+html_page <- read_html("books.html")
+
+html_data <- html_page |>
+  html_element("table") |>
+  html_table()
+
+html_data <- as.data.frame(html_data)
+
+html_data$Year <- as.integer(html_data$Year)
+html_data$ISBN <- as.character(html_data$ISBN)
+
+knitr::kable(html_data,
+  col.names = c("Title", "Authors", "Publication Year", "Publisher", "ISBN-13"),
+  row.names = FALSE,
+  caption = "Books Imported from HTML"
+)
+```
+
+## Import JSON Data
+
+The `jsonlite` package is used to read the JSON file.
+
+```{r}
+#| label: import-json
+
+json_data <- fromJSON("books.json")
+
+json_data <- as.data.frame(json_data)
+
+json_data$Year <- as.integer(json_data$Year)
+json_data$ISBN <- as.character(json_data$ISBN)
+
+knitr::kable(json_data,
+  col.names = c("Title", "Authors", "Publication Year", "Publisher", "ISBN-13"),
+  row.names = FALSE,
+  caption = "Books Imported from JSON"
+)
+```
+
+## Compare Data Frames
+
+Both datasets should contain three records and five variables.
+
+Before comparing them, I will standardize their column order.
+
+```{r}
+#| label: compare-data
+
+columns <- c(
+  "Title",
+  "Authors",
+  "Year",
+  "Publisher",
+  "ISBN"
+)
+
+html_data <- html_data[, columns]
+json_data <- json_data[, columns]
+
+cat("HTML dimensions:", dim(html_data), "\n")
+cat("JSON dimensions:", dim(json_data), "\n")
+
+identical_result <- identical(html_data, json_data)
+
+cat("Are the data frames identical?", identical_result)
+```
+
+## Data Validation
+
+I checked the structure and missing values in both datasets.
+
+```{r}
+#| label: validate-data
+
+str(html_data)
+
+str(json_data)
+
+colSums(is.na(html_data))
+
+colSums(is.na(json_data))
+```
+
+### ISBN-13 Validation
+
+The ISBN-13 numbers were checked using the standard ISBN-13 check-digit formula.
+
+```{r}
+validate_isbn13 <- function(isbn) {
+  isbn <- gsub("[^0-9]", "", isbn)
+
+  if (nchar(isbn) != 13) {
+    return(FALSE)
+  }
+
+  digits <- as.integer(strsplit(isbn, "")[[1]])
+  weights <- rep(c(1, 3), 6)
+
+  total <- sum(digits[1:12] * weights)
+  check_digit <- (10 - (total %% 10)) %% 10
+
+  check_digit == digits[13]
+}
+
+isbn_validation <- data.frame(
+  ISBN = as.character(html_data$ISBN),
+  Valid_ISBN13 = vapply(
+    as.character(html_data$ISBN),
+    validate_isbn13,
+    logical(1)
+  )
+)
+
+knitr::kable(
+  isbn_validation,
+  col.names = c("ISBN-13", "Valid ISBN-13"),
+  row.names = FALSE,
+  caption = "ISBN-13 Validation Results"
+)
+```
+
+All three ISBN-13 numbers passed the check-digit validation. This confirms that the numbers follow the ISBN-13 format, but it does not confirm the book titles or editions.
+
+### Google Books API Validation
+
+I used my own Google Books API key to check the ISBN-13 numbers in an external book database.
+
+This validation is separate from the HTML and JSON comparison and the ISBN-13 check-digit validation.
+
+```{r}
+#| label: google-books-api
+#| warning: false
+#| message: false
+
+library(httr)
+
+# The API key stays in .Renviron; never print it.
+api_key <- Sys.getenv("GOOGLE_BOOKS_API_KEY")
+
+# IDs were identified and tested using Google Books Volumes.Get.
+# Each ID is paired with the expected ISBN to prevent row-order mistakes.
+book_lookup <- data.frame(
+  ISBN = c("9780070612938", "9781133386681", "9780984543809"),
+  Google_Books_ID = c("NBIoAQAAMAAJ", "XScJAAAAQBAJ", "s_IbSQAACAAJ"),
+  stringsAsFactors = FALSE
+)
+
+get_google_book <- function(isbn, id) {
+  empty <- data.frame(
+    ISBN = isbn, Google_Books_ID = id,
+    HTTP_Status = NA_integer_, API_Status = "Connection error",
+    API_Title = NA_character_, API_Authors = NA_character_,
+    API_Year = NA_integer_, API_Publisher = NA_character_,
+    API_ISBN13 = NA_character_, stringsAsFactors = FALSE
+  )
+
+  if (!nzchar(api_key)) {
+    empty$API_Status <- "API key missing"
+    return(empty)
+  }
+
+  response <- tryCatch(
+    GET(
+      paste0("https://www.googleapis.com/books/v1/volumes/", id),
+      query = list(key = api_key),
+      timeout(20)
+    ),
+    error = function(e) NULL
+  )
+
+  if (is.null(response)) return(empty)
+  empty$HTTP_Status <- status_code(response)
+  if (status_code(response) != 200) {
+    empty$API_Status <- paste("HTTP error", status_code(response))
+    return(empty)
+  }
+
+  result <- tryCatch(content(response, "parsed"), error = function(e) NULL)
+  if (is.null(result) || is.null(result$volumeInfo)) {
+    empty$API_Status <- "Invalid response"
+    return(empty)
+  }
+
+  info <- result$volumeInfo
+  ids <- info$industryIdentifiers
+  isbn13 <- NA_character_
+  if (!is.null(ids)) {
+    for (identifier in ids) {
+      if (identical(identifier$type, "ISBN_13")) {
+        isbn13 <- as.character(identifier$identifier)
+        break
+      }
+    }
+  }
+
+  value_or_na <- function(x) if (is.null(x) || length(x) == 0) NA_character_ else as.character(x[[1]])
+  year_text <- value_or_na(info$publishedDate)
+  year <- if (is.na(year_text)) NA_integer_ else suppressWarnings(as.integer(substr(year_text, 1, 4)))
+
+  empty$API_Status <- "Found"
+  empty$API_Title <- value_or_na(info$title)
+  empty$API_Authors <- if (is.null(info$authors)) NA_character_ else paste(unlist(info$authors), collapse = "; ")
+  empty$API_Year <- year
+  empty$API_Publisher <- value_or_na(info$publisher)
+  empty$API_ISBN13 <- isbn13
+  empty
+}
+
+# Match records by ISBN, not by the position of the rows.
+original <- html_data
+original$ISBN <- as.character(original$ISBN)
+lookup_rows <- match(original$ISBN, book_lookup$ISBN)
+if (anyNA(lookup_rows)) stop("An ISBN is missing from book_lookup.")
+
+api_results <- do.call(rbind, lapply(seq_len(nrow(original)), function(i) {
+  get_google_book(original$ISBN[i], book_lookup$Google_Books_ID[lookup_rows[i]])
+}))
+
+# Exact comparisons: author/publisher variations are shown separately.
+api_results$Title_Match <- !is.na(api_results$API_Title) &
+  api_results$API_Title == original$Title
+api_results$Year_Match <- !is.na(api_results$API_Year) &
+  api_results$API_Year == original$Year
+api_results$ISBN_Match <- !is.na(api_results$API_ISBN13) &
+  api_results$API_ISBN13 == original$ISBN
+
+knitr::kable(
+  api_results[, c("ISBN", "Google_Books_ID", "HTTP_Status", "API_Status",
+                  "Title_Match", "Year_Match", "ISBN_Match")],
+  col.names = c("ISBN-13", "Google Books ID", "HTTP Status", "API Status",
+                "Title Match", "Publication Year Match", "ISBN-13 Match"),
+  row.names = FALSE,
+  caption = "Google Books API Validation Results"
+)
+
+# These fields need manual review because of abbreviations and initials.
+knitr::kable(
+  data.frame(
+    ISBN = original$ISBN,
+    Original_Authors = original$Authors,
+    API_Authors = api_results$API_Authors,
+    Original_Publisher = original$Publisher,
+    API_Publisher = api_results$API_Publisher
+  ),
+  col.names = c("ISBN-13", "Original Authors", "Google Books Authors",
+                "Original Publisher", "Google Books Publisher"),
+  row.names = FALSE,
+  caption = "Author and Publisher Comparison"
+)
+```
+
+#### API Validation Discussion
+
+I first tried searching Google Books by ISBN, but the search endpoint returned HTTP errors or no results. I then used the Google Books IDs to retrieve the three records directly.
+
+In the RStudio console test, all three direct requests returned HTTP 200. The titles, publication years, and ISBN-13 numbers matched my dataset. The API used shorter versions of some author and publisher names. I kept the original values and showed these differences for review.
+
+The tables above show the results of the current Render. If an API request fails during Render, the table records the error instead of treating the book as verified.
+
+## Results and Discussion
+
+The HTML and JSON files were successfully imported into R. Both datasets contain three books and five variables. The `identical()` comparison returned `TRUE`, and there were no missing values.
+
+All three ISBN-13 numbers passed the local check-digit test. During the final report execution, Google Books returned HTTP 200 for all three records. The titles, publication years, and ISBN-13 numbers matched the original dataset. Differences in author and publisher names are shown in a separate table for manual review.
+
+## Conclusions
+
+In this project, I organized information from three electrical engineering books in HTML and JSON files. I imported both files into R and confirmed that they contain the same information.
+
+I also checked missing values and validated the ISBN-13 numbers. Google Books helped me compare the titles, publication years, and ISBN numbers with external records. I learned that author and publisher names can be written differently, even when the ISBN matches.
+
+This project helped me understand data consistency, local validation, and external API validation. It also showed me why API errors should be reported separately from data errors.
+
 # AI Use
 
-ChatGPT was used to help interpret the assignment requirements, organize the planned approach, improve the English writing, and provide guidance for the HTML, JSON, and R workflow. I selected the electrical engineering topic based on my professional background and will review and verify the bibliographic information, data transformations, and final results.
+ChatGPT was used to help interpret the assignment requirements, organize the planned approach, improve the English writing, and provide guidance for the HTML, JSON, and R workflow. I selected the electrical engineering topic based on my professional background and reviewed the bibliographic information, data transformations, and reported results.
 
 # References
 
