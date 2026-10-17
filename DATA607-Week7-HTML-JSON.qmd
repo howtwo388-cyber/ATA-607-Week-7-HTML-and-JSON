@@ -1,0 +1,263 @@
+---
+title: "DATA 607 — Week 7: HTML and JSON Approach"
+subtitle: "Electrical Power System Analysis Books: Data Collection and Validation"
+author: "Patricio Romero"
+date: "2026-10-13"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    theme: cosmo
+    code-fold: true
+    embed-resources: true
+editor: visual
+---
+
+# Introduction
+
+HTML and JSON are common formats used to organize and exchange information on the web. HTML is mainly used to structure web pages, while JSON is used to store and exchange structured data.
+
+In this project, I will work with bibliographic information from three electrical engineering books related to power system analysis.
+
+I selected this subject because my professional background is in electrical engineering. I am interested in power flow analysis, electrical distribution systems, and power system modeling.
+
+The purpose of this project is to organize the same information in HTML and JSON formats and later compare the imported data using R.
+
+# Project Objectives
+
+The main objectives of this project are:
+
+1. Select three books related to electrical power system analysis.
+2. Collect bibliographic information from each book.
+3. Organize the information into a structured dataset.
+4. Prepare a plan to verify the information using the Google Books API.
+5. Create HTML and JSON files containing the same information.
+6. Import both files into R.
+7. Compare the resulting data frames to verify data consistency.
+
+# Book Selection
+
+I selected three books related to electrical power system analysis.
+
+These books cover important electrical engineering topics, including power flow calculations, fault analysis, electrical system design, and system stability.
+
+## Book 1: Power System Analysis
+
+**Authors:** John J. Grainger and William D. Stevenson Jr.
+
+**Publication Year:** 1994
+
+**Publisher:** McGraw-Hill
+
+**ISBN:** 9780070612938
+
+This book explains the fundamentals of electrical power system analysis, including network modeling, power flow calculations, and fault analysis.
+
+## Book 2: Power System Analysis & Design, SI Version
+
+**Authors:** J. Duncan Glover, Mulukutla S. Sarma, and Thomas J. Overbye
+
+**Publication Year:** 2012
+
+**Publisher:** Cengage Learning
+
+**ISBN:** 9781133386681
+
+This book focuses on the analysis and design of electrical power systems. It includes power system components, transmission networks, and system operation.
+
+## Book 3: Power System Analysis
+
+**Author:** Hadi Saadat
+
+**Publication Year:** 2010
+
+**Publisher:** PSA Publishing
+
+**ISBN:** 9780984543809
+
+This book presents mathematical and computational methods used in power system analysis, including power flow studies, fault calculations, and stability analysis.
+
+All three books are related to the same subject. Two of the selected books have multiple authors.
+
+# Data Collection
+
+I collected bibliographic information for the three selected books.
+
+The dataset contains five variables:
+
+- Title
+- Authors
+- Publication Year
+- Publisher
+- ISBN-13
+
+The information was organized into the following table.
+
+## Original Book Dataset
+
+| Title | Authors | Year | Publisher | ISBN-13 |
+|---|---|---|---|---|
+| Power System Analysis | John J. Grainger; William D. Stevenson Jr. | 1994 | McGraw-Hill | 9780070612938 |
+| Power System Analysis & Design, SI Version | J. Duncan Glover; Mulukutla S. Sarma; Thomas J. Overbye | 2012 | Cengage Learning | 9781133386681 |
+| Power System Analysis | Hadi Saadat | 2010 | PSA Publishing | 9780984543809 |
+
+The dataset contains three records and five variables.
+
+Each record represents one book, and each column represents one bibliographic attribute.
+
+# Data Dictionary
+
+A data dictionary was prepared to describe the structure of the dataset.
+
+| Variable | Data Type | Description |
+|---|---|---|
+| Title | Character | Complete title of the book |
+| Authors | Character | Name or names of the authors |
+| Year | Integer | Publication year |
+| Publisher | Character | Name of the publishing company |
+| ISBN | Character | International Standard Book Number (ISBN-13) |
+
+The ISBN will be stored as a character variable because it is an identifier rather than a value used for mathematical calculations.
+
+# API Data Validation Plan
+
+To improve data quality, I plan to use the Google Books API to verify the bibliographic information.
+
+The API will be used to check:
+
+1. Book titles
+2. Author names
+3. Publication years
+4. Publishers
+5. ISBN numbers
+
+I will compare the information returned by the API with the original dataset.
+
+If differences are found, I will review them to determine whether they represent incorrect information or different book editions.
+
+The API will be used as an additional validation source. It will not automatically replace the original data.
+
+This process will help identify possible errors and improve data consistency.
+
+The Google Books API will be accessed through its public Books
+Volumes endpoint. Book records will be searched using their ISBN-13
+identifiers.
+
+The returned information will be reviewed against the original
+dataset. API validation will be performed during the Code Base
+phase, and the results will be documented in the final report.
+
+If the API does not return a matching record, I will review
+the bibliographic information using other available sources.
+
+# Proposed HTML Data Structure
+
+In the next phase, I will manually create an HTML file named `books.html`.
+
+The file will contain a table with the information from the original dataset.
+
+The HTML table will include five columns:
+
+- Title
+- Authors
+- Year
+- Publisher
+- ISBN
+
+Each row will represent one book.
+
+The purpose of this file is to demonstrate how bibliographic information can be organized using HTML.
+
+# Proposed JSON Data Structure
+
+I will also manually create a JSON file named `books.json`.
+
+The JSON file will contain the same three books and the same five variables.
+
+Each book will be represented as a JSON object containing key-value pairs.
+
+Both files will use the same information to allow a direct comparison after importing the data into R.
+
+# Data Processing and Comparison Plan
+
+## Importance of R
+
+R is an important tool for data analysis because it allows
+users to import, organize, clean, and compare information
+from different sources.
+
+In this project, R will be used to process bibliographic
+information stored in HTML and JSON formats.
+
+The `rvest` package will be used to read the HTML table,
+while the `jsonlite` package will be used to import the
+JSON file.
+
+Both datasets will be converted into separate data frames
+for comparison.
+
+## Importance of Data Frame Comparison
+
+Comparing data frames is important because information
+stored in different formats may produce different results
+when imported into R.
+
+For example, publication years may be imported as
+characters in one file and integers in another file.
+
+These differences can affect the comparison even when
+the original information appears to be the same.
+
+The comparison will help identify differences in:
+
+- Number of records
+- Column names
+- Data types
+- Missing values
+- Bibliographic information
+
+## Proposed Comparison Method
+
+First, I will import the HTML and JSON files into R.
+
+Next, I will review the structure of both data frames
+and check that they contain the same three books
+and five variables.
+
+If necessary, I will standardize the column names,
+data types, and column order.
+
+Finally, I will use the `identical()` function in R
+to check whether both data frames contain exactly
+the same information.
+
+The comparison results will be presented during
+the Code Base phase.
+
+This process will help demonstrate how R can be used
+to validate data consistency across different formats.
+
+# Expected Results
+
+I expect both files to produce data frames containing three records and five variables.
+
+After importing and organizing the information, I expect the two data frames to contain identical values.
+
+The Google Books API may help identify differences in bibliographic information, especially when books have multiple editions.
+
+This project will help me understand how HTML and JSON represent structured data and how R can be used to import, validate, and compare information from different sources.
+
+# AI Use
+
+ChatGPT was used to help interpret the assignment requirements, organize the planned approach, improve the English writing, and provide guidance for the HTML, JSON, and R workflow. I selected the electrical engineering topic based on my professional background and will review and verify the bibliographic information, data transformations, and final results.
+
+# References
+
+Grainger, J. J., & Stevenson, W. D., Jr. (1994). *Power System Analysis*. McGraw-Hill.
+
+Glover, J. D., Sarma, M. S., & Overbye, T. J. (2012). *Power System Analysis & Design, SI Version*. Cengage Learning.
+
+Saadat, H. (2010). *Power System Analysis* (3rd ed.). PSA Publishing.
+
+Google Books API. https://developers.google.com/books
