@@ -2231,7 +2231,7 @@ vertical-align: -.125em;
   <li><a href="#importance-of-data-frame-comparison" id="toc-importance-of-data-frame-comparison" class="nav-link" data-scroll-target="#importance-of-data-frame-comparison"><span class="header-section-number">9.2</span> Importance of Data Frame Comparison</a></li>
   <li><a href="#proposed-comparison-method" id="toc-proposed-comparison-method" class="nav-link" data-scroll-target="#proposed-comparison-method"><span class="header-section-number">9.3</span> Proposed Comparison Method</a></li>
   </ul></li>
-  <li><a href="#expected-results" id="toc-expected-results" class="nav-link" data-scroll-target="#expected-results"><span class="header-section-number">10</span> Expected Results</a></li>
+  <li><a href="#expected-outcomes-and-findings" id="toc-expected-outcomes-and-findings" class="nav-link" data-scroll-target="#expected-outcomes-and-findings"><span class="header-section-number">10</span> Expected Outcomes and Findings</a></li>
   <li><a href="#html-and-json-code-base" id="toc-html-and-json-code-base" class="nav-link" data-scroll-target="#html-and-json-code-base"><span class="header-section-number">11</span> HTML and JSON Code Base</a>
   <ul class="collapse">
   <li><a href="#introduction-1" id="toc-introduction-1" class="nav-link" data-scroll-target="#introduction-1"><span class="header-section-number">11.1</span> Introduction</a></li>
@@ -2240,11 +2240,12 @@ vertical-align: -.125em;
   <li><a href="#compare-data-frames" id="toc-compare-data-frames" class="nav-link" data-scroll-target="#compare-data-frames"><span class="header-section-number">11.4</span> Compare Data Frames</a></li>
   <li><a href="#data-validation" id="toc-data-validation" class="nav-link" data-scroll-target="#data-validation"><span class="header-section-number">11.5</span> Data Validation</a>
   <ul class="collapse">
-  <li><a href="#isbn-13-validation" id="toc-isbn-13-validation" class="nav-link" data-scroll-target="#isbn-13-validation"><span class="header-section-number">11.5.1</span> ISBN-13 Validation</a></li>
+  <li><a href="#isbn-validation" id="toc-isbn-validation" class="nav-link" data-scroll-target="#isbn-validation"><span class="header-section-number">11.5.1</span> ISBN Validation</a></li>
   <li><a href="#google-books-api-validation" id="toc-google-books-api-validation" class="nav-link" data-scroll-target="#google-books-api-validation"><span class="header-section-number">11.5.2</span> Google Books API Validation</a></li>
   </ul></li>
   <li><a href="#results-and-discussion" id="toc-results-and-discussion" class="nav-link" data-scroll-target="#results-and-discussion"><span class="header-section-number">11.6</span> Results and Discussion</a></li>
   <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions"><span class="header-section-number">11.7</span> Conclusions</a></li>
+  <li><a href="#video-presentation" id="toc-video-presentation" class="nav-link" data-scroll-target="#video-presentation"><span class="header-section-number">11.8</span> Video Presentation</a></li>
   </ul></li>
   <li><a href="#ai-use" id="toc-ai-use" class="nav-link" data-scroll-target="#ai-use"><span class="header-section-number">12</span> AI Use</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">13</span> References</a></li>
@@ -2509,12 +2510,12 @@ vertical-align: -.125em;
 <p>This process demonstrated how R can be used to validate data consistency across different formats.</p>
 </section>
 </section>
-<section id="expected-results" class="level1" data-number="10">
-<h1 data-number="10"><span class="header-section-number">10</span> Expected Results</h1>
-<p>I expect both files to produce data frames containing three records and five variables.</p>
-<p>After importing and organizing the information, I expect the two data frames to contain identical values.</p>
-<p>The Google Books API may help identify differences in bibliographic information, especially when books have multiple editions.</p>
-<p>This project will help me understand how HTML and JSON represent structured data and how R can be used to import, validate, and compare information from different sources.</p>
+<section id="expected-outcomes-and-findings" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Expected Outcomes and Findings</h1>
+<p>The HTML and JSON files produced data frames containing three books and five variables.</p>
+<p>After importing and organizing the information, both data frames contained identical values.</p>
+<p>The Google Books API helped identify differences in author and publisher names. These differences did not change the original bibliographic information.</p>
+<p>This project demonstrated how HTML and JSON can represent the same structured data and how R can be used to import, validate, and compare information from different sources.</p>
 </section>
 <section id="html-and-json-code-base" class="level1" data-number="11">
 <h1 data-number="11"><span class="header-section-number">11</span> HTML and JSON Code Base</h1>
@@ -2747,8 +2748,8 @@ vertical-align: -.125em;
         0         0         0         0         0 </code></pre>
 </div>
 </div>
-<section id="isbn-13-validation" class="level3" data-number="11.5.1">
-<h3 data-number="11.5.1" class="anchored" data-anchor-id="isbn-13-validation"><span class="header-section-number">11.5.1</span> ISBN-13 Validation</h3>
+<section id="isbn-validation" class="level3" data-number="11.5.1">
+<h3 data-number="11.5.1" class="anchored" data-anchor-id="isbn-validation"><span class="header-section-number">11.5.1</span> ISBN Validation</h3>
 <p>The ISBN-13 numbers were checked using the standard ISBN-13 check-digit formula.</p>
 <div class="cell">
 <details class="code-fold">
@@ -3047,7 +3048,7 @@ vertical-align: -.125em;
 </section>
 <section id="results-and-discussion" class="level2" data-number="11.6">
 <h2 data-number="11.6" class="anchored" data-anchor-id="results-and-discussion"><span class="header-section-number">11.6</span> Results and Discussion</h2>
-<p>The HTML and JSON files were successfully imported into R. Both datasets contained three books and five variables. The identical() function returned TRUE, confirming that both datasets contained the same information. No missing values were found.</p>
+<p>The HTML and JSON files were successfully imported into R. Both datasets contained three books and five variables. The <code>identical()</code> function returned <code>TRUE</code>, confirming that both datasets contained the same information. No missing values were found.</p>
 <p>All three ISBN numbers passed the check-digit validation. During the final report execution, the Google Books API returned HTTP 200 for all three records. The book titles, publication years, and ISBN numbers matched the original dataset. Some differences were found in the author and publisher names because the API used shorter names or abbreviations. These differences were included in a separate table for manual review.</p>
 </section>
 <section id="conclusions" class="level2" data-number="11.7">
@@ -3055,6 +3056,13 @@ vertical-align: -.125em;
 <p>In this project, I organized information from three electrical engineering books in HTML and JSON files. I imported both files into R and confirmed that they contain the same information.</p>
 <p>I also checked missing values and validated the ISBN-13 numbers. Google Books helped me compare the titles, publication years, and ISBN numbers with external records. I learned that author and publisher names can be written differently, even when the ISBN matches.</p>
 <p>This project helped me understand data consistency, local validation, and external API validation. It also showed me why API errors should be reported separately from data errors.</p>
+</section>
+<section id="video-presentation" class="level2" data-number="11.8">
+<h2 data-number="11.8" class="anchored" data-anchor-id="video-presentation"><span class="header-section-number">11.8</span> Video Presentation</h2>
+<p><a href="https://youtu.be/QuI7I9DIQag">Watch my Week 7 Project Presentation on YouTube</a></p>
+<p>In this video, I explain my approach to the Week 7 HTML and JSON assignment.</p>
+<p>I present the project objectives, data collection process, HTML and JSON implementation, results, data validation, and conclusions.</p>
+<p>The project demonstrates how to import HTML and JSON data into R, compare datasets, and validate information using ISBN checks and the Google Books API.</p>
 </section>
 </section>
 <section id="ai-use" class="level1" data-number="12">

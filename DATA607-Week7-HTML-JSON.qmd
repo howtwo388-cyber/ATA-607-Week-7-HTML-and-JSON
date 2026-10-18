@@ -520,6 +520,20 @@ I also checked missing values and validated the ISBN-13 numbers. Google Books he
 
 This project helped me understand data consistency, local validation, and external API validation. It also showed me why API errors should be reported separately from data errors.
 
+## Video Presentation
+
+[Watch my Week 7 Project Presentation on YouTube](https://youtu.be/QuI7I9DIQag)
+
+In this video, I explain my approach to the Week 7 HTML and JSON assignment.
+
+I present the project objectives, data collection process,
+HTML and JSON implementation, results, data validation,
+and conclusions.
+
+The project demonstrates how to import HTML and JSON data
+into R, compare datasets, and validate information using
+ISBN checks and the Google Books API.
+
 # AI Use
 
 ChatGPT was used to help interpret the assignment requirements, organize the planned approach, improve the English writing, and provide guidance for the HTML, JSON, and R workflow. I selected the electrical engineering topic based on my professional background and reviewed the bibliographic information, data transformations, and reported results.
